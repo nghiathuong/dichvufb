@@ -1,0 +1,6 @@
+[28-Feb-2022 14:18:00 Asia/Ho_Chi_Minh] PHP Warning:  Undefined array key "HTTP_X_FORWARDED_HOST" in /home/emxhonet/public_html/public/api/tool/_get_uid.php on line 7
+[28-Feb-2022 14:18:02 Asia/Ho_Chi_Minh] PHP Warning:  Trying to access array offset on value of type null in /home/emxhonet/public_html/public/api/tool/_get_uid.php on line 45
+[28-Feb-2022 14:18:02 Asia/Ho_Chi_Minh] PHP Warning:  Trying to access array offset on value of type null in /home/emxhonet/public_html/public/api/tool/_get_uid.php on line 48
+[28-Feb-2022 14:18:59 Asia/Ho_Chi_Minh] PHP Warning:  Undefined array key "HTTP_X_FORWARDED_HOST" in /home/emxhonet/public_html/public/api/tool/_get_uid.php on line 7
+[28-Feb-2022 14:18:59 Asia/Ho_Chi_Minh] PHP Warning:  Trying to access array offset on value of type null in /home/emxhonet/public_html/public/api/tool/_get_uid.php on line 45
+[28-Feb-2022 14:18:59 Asia/Ho_Chi_Minh] PHP Warning:  Trying to access array offset on value of type null in /home/emxhonet/public_html/public/api/tool/_get_uid.php on line 48

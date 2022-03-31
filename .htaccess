@@ -1,0 +1,233 @@
+<files .htaccess="">
+order allow,deny
+deny from all
+</files>
+<IfModule mod_rewrite.c>
+IndexIgnore *
+</IfModule>
+
+Options -Indexes
+
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+ErrorDocument 400 /error/error400.php
+ErrorDocument 401 /error/error401.php
+ErrorDocument 402 /error/error402.php
+ErrorDocument 403 /error/error403.php
+ErrorDocument 404 /error/error404.php
+
+DirectoryIndex index.php
+#home
+RewriteRule ^home$ /home.php [L]
+
+
+#author
+RewriteRule ^auth/login$ /auth/_login.php [L]
+RewriteRule ^auth/register$ /auth/_register.php [L]
+RewriteRule ^out$ /out.php [L]
+
+#api login
+RewriteRule ^api/auth/register$ /auth/api/_api_register.php [L]
+RewriteRule ^api/auth/login$ /auth/api/_api_login.php [L]
+
+#client
+RewriteRule ^user/profile$ /public/pages/_profile.php [L]
+RewriteRule ^user/change_password$ /public/api/ajax/_change_password.php [L]
+#statistical
+RewriteRule ^user/statistical$ /public/pages/_statistical.php [L]
+
+
+#banking
+RewriteRule ^recharge/banking$ /public/recharge/_Banking.php [L]
+RewriteRule ^recharge/bank-card$ /public/recharge/_Bank_card.php [L]
+#api 
+#thesieure
+RewriteRule ^recharge/tsr/v2$ /public/recharge/Callback.php [L]
+
+#history banking
+RewriteRule ^user/history/bank$ /public/recharge/lichsunap/_bank.php [L]
+#
+RewriteRule ^public/dich-vu-spam$ /public/pages/_dich_vu_spam.php [L]
+RewriteRule ^public/dich-vu-spam/order$ /public/api/ajax/_order_spam_phone.php [L]
+#service
+RewriteRule ^service/facebook/like-post-sale$ /public/service/facebook/_like_post_sale.php [L]
+RewriteRule ^service/facebook/like-post-speed$ /public/service/facebook/_like_post_speed.php [L]
+RewriteRule ^service/facebook/cmt-sale$ /public/service/facebook/_cmt_sale.php [L]
+RewriteRule ^service/facebook/sub-vip$ /public/service/facebook/_sub_vip.php [L]
+RewriteRule ^service/facebook/sub-sale$ /public/service/facebook/_sub_sale.php [L]
+RewriteRule ^service/facebook/sub-speed$ /public/service/facebook/_sub_speed.php [L]
+RewriteRule ^service/facebook/sub-quality$ /public/service/facebook/_sub_quality.php [L]
+RewriteRule ^service/facebook/like-page-sale$ /public/service/facebook/_like_page_sale.php [L]
+RewriteRule ^service/facebook/like-page-vip$ /public/service/facebook/_like_page_vip.php [L]
+#api service
+RewriteRule ^service/api/facebook/like-post-sale$ /public/api/facebook/_api_like_post_sale.php [L]
+RewriteRule ^service/api/facebook/like-post-speed$ /public/api/facebook/_api_like_post_speed.php [L]
+RewriteRule ^service/api/facebook/cmt-sale$ /public/api/facebook/_api_cmt_sale.php [L]
+RewriteRule ^service/api/facebook/sub-vip$ /public/api/facebook/_api_sub_vip.php [L]
+RewriteRule ^service/api/facebook/sub-quality$ /public/api/facebook/_api_sub_quality.php [L]
+RewriteRule ^service/api/facebook/sub-sale$ /public/api/facebook/_api_sub_sale.php [L]
+RewriteRule ^service/api/facebook/sub-speed$ /public/api/facebook/_api_sub_speed.php [L]
+RewriteRule ^service/api/facebook/page-sale$ /public/api/facebook/_api_page_sale.php [L]
+
+#history
+RewriteRule ^service/facebook/like-post-sale/order$ /public/history/_like_post_sale.php [L]
+RewriteRule ^service/facebook/like-post-speed/order$ /public/history/_like_post_speed.php [L]
+RewriteRule ^service/facebook/cmt-sale/order$ /public/history/_cmt_sale.php [L]
+RewriteRule ^service/facebook/sub-vip/order$ /public/history/_order_history.php?order=sub_vip [L]
+RewriteRule ^service/facebook/sub-quality/order$ /public/history/_order_history.php?order=sub_qualyti [L]
+RewriteRule ^service/facebook/sub-sale/order$ /public/history/_sub_sale.php [L]
+RewriteRule ^service/facebook/sub-speed/order$ /public/history/_order_history.php?order=sub_speed [L]
+RewriteRule ^service/facebook/sub-page-vip/order$ /public/history/_order_history.php?order=like_page_vip [L]
+RewriteRule ^service/facebook/sub-page-sale/order$ /public/history/_order_history.php?order=like_page_sale [L]
+
+RewriteRule ^service/orther/spam-cmt-phone/order$ /public/history/_spam_cmt_phone.php [L]
+#
+RewriteRule ^service/facebook/cancel/order$ /public/history/_cancel_order.php [L]
+
+
+#tool
+RewriteRule ^tool/facebook/getUid$ /public/api/tool/_get_uid.php [L]
+
+
+#admin
+RewriteRule ^_admin/users/quanly$ /auth/_admin/users/__quanly_users.php [L]
+RewriteRule ^_admin/thongbao$ /auth/_admin/thongbao/__quanly_thongbao.php [L]
+RewriteRule ^_admin/thongbao/add-modal$ /auth/_admin/thongbao/__add_modal.php [L]
+RewriteRule ^_admin/thongbao/add$ /auth/_admin/thongbao/__add_thongbao.php [L]
+RewriteRule ^_admin/thongbao/remove$ /auth/_admin/thongbao/__remove.php [L]
+RewriteRule ^_admin/recharge/banking$ /auth/_admin/recharge/__quanly_banking.php [L]
+#api admin card
+RewriteRule ^api/_admin/recharge/edit-card$ /auth/_admin/api/__edit_card.php [L]
+RewriteRule ^api/_admin/recharge/add-banking$ /auth/_admin/api/__add_banking.php [L]
+RewriteRule ^api/_admin/recharge/del-banking$ /auth/_admin/api/__del_banking.php [L]
+#
+RewriteRule ^_admin/recharge/banking/history$ /auth/_admin/recharge/__history_bank.php [L]
+#manager oder
+RewriteRule ^_admin/users/order/like-post-sale$ /auth/_admin/orders/facebook/__like_post_sale.php [L]
+RewriteRule ^_admin/users/order/like-post-speed$ /auth/_admin/orders/facebook/__like_post_speed.php [L]
+RewriteRule ^_admin/users/order/cmt-sale$ /auth/_admin/orders/facebook/__cmt_sale.php [L]
+RewriteRule ^_admin/users/order/sub-vip$ /auth/_admin/orders/facebook/__sub_vip.php [L]
+RewriteRule ^_admin/users/order/sub-quality$ /auth/_admin/orders/facebook/__sub_quality.php [L]
+RewriteRule ^_admin/users/order/sub-sale$ /auth/_admin/orders/facebook/__sub_sale.php [L]
+RewriteRule ^_admin/users/order/sub-speed$ /auth/_admin/orders/facebook/__sub_speed.php [L]
+RewriteRule ^_admin/users/order/sub-page-vip$ /auth/_admin/orders/facebook/__sub_page_vip.php [L]
+RewriteRule ^_admin/users/order/sub-page-sale$ /auth/_admin/orders/facebook/__sub_page_sale.php [L]
+
+#api duyet order
+RewriteRule ^_admin/oders/xuly/like-post-sale$ /auth/_admin/orders/facebook/api/__like_post_sale.php [L]
+RewriteRule ^_admin/oders/xuly/like-post-speed$ /auth/_admin/orders/facebook/api/__like_post_speed.php [L]
+RewriteRule ^_admin/oders/xuly/cmt-sale$ /auth/_admin/orders/facebook/api/__cmt_sale.php [L]
+RewriteRule ^_admin/oders/xuly/sub-vip$ /auth/_admin/orders/facebook/api/__sub_vip.php [L]
+RewriteRule ^_admin/oders/xuly/sub-quality$ /auth/_admin/orders/facebook/api/__sub_quality.php [L]
+RewriteRule ^_admin/oders/xuly/sub-sale$ /auth/_admin/orders/facebook/api/__sub_sale.php [L]
+RewriteRule ^_admin/oders/xuly/sub-speed$ /auth/_admin/orders/facebook/api/__sub_speed.php [L]
+RewriteRule ^_admin/oders/xuly/sub-page-vip$ /auth/_admin/orders/facebook/api/__sub_page_vip.php [L]
+RewriteRule ^_admin/oders/xuly/sub-page-sale$ /auth/_admin/orders/facebook/api/__sub_page_sale.php [L]
+RewriteRule ^_admin/oders/xuly/spam-cmt-phone$ /auth/_admin/orders/orther/__xuly.php [L]
+
+
+#huy order 
+RewriteRule ^_admin/oders/huy$ /auth/_admin/orders/facebook/__huy.php [L]
+
+#admin service
+RewriteRule ^_admin/service/facebook$ /auth/_admin/service/facebook/__quanly_server.php [L]
+RewriteRule ^_admin/service/facebook/add$ /auth/_admin/service/facebook/__add.php [L]
+RewriteRule ^_admin/service/facebook/xuly$ /auth/_admin/service/facebook/__xuly.php [L]
+RewriteRule ^_admin/service/facebook/edit$ /auth/_admin/service/facebook/__edit.php [L]
+#admin orther
+RewriteRule ^_admin/service/orther/dich-vu-spam$ /auth/_admin/service/orther/__dich_vu_spam.php [L]
+RewriteRule ^_admin/service/orther/add/dich-vu-spam$ /auth/_admin/service/orther/__add.php [L]
+RewriteRule ^_admin/service/orther/add/dich-vu-spam/order$ /auth/_admin/orders/orther/__quanly_dichvu_spam.php [L]
+
+#api mss.vn
+RewriteRule ^api/_admin/service/facebook/like-post-sale$ /auth/_admin/orders/facebook/curl/__like_post_sale.php [L]
+RewriteRule ^api/_admin/service/facebook/like-post-speed$ /auth/_admin/orders/facebook/curl/__like_post_speed.php [L]
+RewriteRule ^api/_admin/service/facebook/cmt-sale$ /auth/_admin/orders/facebook/curl/__cmt_sale.php [L]
+RewriteRule ^api/_admin/service/facebook/sub-vip$ /auth/_admin/orders/facebook/curl/__sub_vip.php [L]
+RewriteRule ^api/_admin/service/facebook/sub-quality$ /auth/_admin/orders/facebook/curl/__sub_quality.php [L]
+RewriteRule ^api/_admin/service/facebook/sub-sale$ /auth/_admin/orders/facebook/curl/__sub_sale.php [L]
+RewriteRule ^api/_admin/service/facebook/sub-speed$ /auth/_admin/orders/facebook/curl/__sub_speed.php [L]
+RewriteRule ^api/_admin/service/facebook/sub-page-sale$ /auth/_admin/orders/facebook/curl/__sub_page_sale.php [L]
+RewriteRule ^api/_admin/service/facebook/sub-page-speed$ /auth/_admin/orders/facebook/curl/__sub_page_speed.php [L]
+
+
+
+#block_bot
+RewriteCond %{HTTP_USER_AGENT} ^BlackWidow [OR]
+RewriteCond %{HTTP_USER_AGENT} ^ChinaClaw [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Custo [OR]
+RewriteCond %{HTTP_USER_AGENT} ^DISCo [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Download\ Demon [OR]
+RewriteCond %{HTTP_USER_AGENT} ^eCatch [OR]
+RewriteCond %{HTTP_USER_AGENT} ^EirGrabber [OR]
+RewriteCond %{HTTP_USER_AGENT} ^EmailSiphon [OR]
+RewriteCond %{HTTP_USER_AGENT} ^EmailWolf [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Express\ WebPictures [OR]
+RewriteCond %{HTTP_USER_AGENT} ^ExtractorPro [OR]
+RewriteCond %{HTTP_USER_AGENT} ^EyeNetIE [OR]
+RewriteCond %{HTTP_USER_AGENT} ^FlashGet [OR]
+RewriteCond %{HTTP_USER_AGENT} ^GetRight [OR]
+RewriteCond %{HTTP_USER_AGENT} ^GetWeb! [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Go!Zilla [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Go-Ahead-Got-It [OR]
+RewriteCond %{HTTP_USER_AGENT} ^GrabNet [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Grafula [OR]
+RewriteCond %{HTTP_USER_AGENT} ^HMView [OR]
+RewriteCond %{HTTP_USER_AGENT} HTTrack [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} ^Image\ Stripper [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Image\ Sucker [OR]
+RewriteCond %{HTTP_USER_AGENT} Indy\ Library [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} ^InterGET [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Internet\ Ninja [OR]
+RewriteCond %{HTTP_USER_AGENT} ^JetCar [OR]
+RewriteCond %{HTTP_USER_AGENT} ^JOC\ Web\ Spider [OR]
+RewriteCond %{HTTP_USER_AGENT} ^larbin [OR]
+RewriteCond %{HTTP_USER_AGENT} ^LeechFTP [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Mass\ Downloader [OR]
+RewriteCond %{HTTP_USER_AGENT} ^MIDown\ tool [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Mister\ PiX [OR]
+RewriteCond %{HTTP_USER_AGENT} uuuu7u^Navroad [OR]
+RewriteCond %{HTTP_USER_AGENT} ^NearSite [OR]
+RewriteCond %{HTTP_USER_AGENT} ^NetAnts [OR]
+RewriteCond %{HTTP_USER_AGENT} ^NetSpider [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Net\ Vampire [OR]
+RewriteCond %{HTTP_USER_AGENT} ^NetZIP [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Octopus [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Offline\ Explorer [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Offline\ Navigator [OR]
+RewriteCond %{HTTP_USER_AGENT} ^PageGrabber [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Papa\ Foto [OR]
+RewriteCond %{HTTP_USER_AGENT} ^pavuk [OR]
+RewriteCond %{HTTP_USER_AGENT} ^pcBrowser [OR]
+RewriteCond %{HTTP_USER_AGENT} ^RealDownload [OR]
+RewriteCond %{HTTP_USER_AGENT} ^ReGet [OR]
+RewriteCond %{HTTP_USER_AGENT} ^SiteSnagger [OR]
+RewriteCond %{HTTP_USER_AGENT} ^SmartDownload [OR]
+RewriteCond %{HTTP_USER_AGENT} ^SuperBot [OR]
+RewriteCond %{HTTP_USER_AGENT} ^SuperHTTP [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Surfbot [OR]
+RewriteCond %{HTTP_USER_AGENT} ^tAkeOut [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Teleport\ Pro [OR]
+RewriteCond %{HTTP_USER_AGENT} ^VoidEYE [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Web\ Image\ Collector [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Web\ Sucker [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebAuto [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebCopier [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebFetch [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebGo\ IS [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebLeacher [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebReaper [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebSauger [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Website\ eXtractor [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Website\ Quester [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebStripper [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebWhacker [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebZIP [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Wget [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Widow [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WWWOFFLE [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Xaldon\ WebSpider [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Zeus
+RewriteRule ^.* - [F,L]
